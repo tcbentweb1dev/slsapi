@@ -11,22 +11,11 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString } from "class-validator";
+import { IsString, IsOptional, IsDate } from "class-validator";
 import { Type } from "class-transformer";
 
 @InputType()
-class ApplicationPrescreenUpdateInput {
-  @ApiProperty({
-    required: false,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @IsOptional()
-  @Field(() => Date, {
-    nullable: true,
-  })
-  applicationDate?: Date | null;
-
+class BorrowerPrescreenUpdateInput {
   @ApiProperty({
     required: false,
     type: String,
@@ -36,73 +25,7 @@ class ApplicationPrescreenUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  applicationNo?: string;
-
-  @ApiProperty({
-    required: false,
-  })
-  @IsDate()
-  @Type(() => Date)
-  @IsOptional()
-  @Field(() => Date, {
-    nullable: true,
-  })
-  applyDate?: Date | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  branchCodeOwner?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  branchNameOwner?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  costCenterOwner?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  createdBy?: string | null;
-
-  @ApiProperty({
-    required: false,
-    type: String,
-  })
-  @IsString()
-  @IsOptional()
-  @Field(() => String, {
-    nullable: true,
-  })
-  customerName?: string | null;
+  borrowerType?: string | null;
 
   @ApiProperty({
     required: false,
@@ -114,6 +37,17 @@ class ApplicationPrescreenUpdateInput {
     nullable: true,
   })
   customerType?: string | null;
+
+  @ApiProperty({
+    required: false,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @IsOptional()
+  @Field(() => Date, {
+    nullable: true,
+  })
+  dateOfBirth?: Date | null;
 
   @ApiProperty({
     required: false,
@@ -135,7 +69,7 @@ class ApplicationPrescreenUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  referralByBranch?: string | null;
+  nameEn?: string | null;
 
   @ApiProperty({
     required: false,
@@ -146,7 +80,7 @@ class ApplicationPrescreenUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  referralByName?: string | null;
+  nameTh?: string | null;
 
   @ApiProperty({
     required: false,
@@ -157,18 +91,51 @@ class ApplicationPrescreenUpdateInput {
   @Field(() => String, {
     nullable: true,
   })
-  status?: string | null;
+  personalDocType?: string | null;
 
   @ApiProperty({
     required: false,
+    type: String,
   })
-  @IsDate()
-  @Type(() => Date)
+  @IsString()
   @IsOptional()
-  @Field(() => Date, {
+  @Field(() => String, {
     nullable: true,
   })
-  updatedBy?: Date | null;
+  surnameEn?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  surnameTh?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  titleEn?: string | null;
+
+  @ApiProperty({
+    required: false,
+    type: String,
+  })
+  @IsString()
+  @IsOptional()
+  @Field(() => String, {
+    nullable: true,
+  })
+  titleTh?: string | null;
 }
 
-export { ApplicationPrescreenUpdateInput as ApplicationPrescreenUpdateInput };
+export { BorrowerPrescreenUpdateInput as BorrowerPrescreenUpdateInput };

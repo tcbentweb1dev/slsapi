@@ -1,5 +1,7 @@
 import { Module } from "@nestjs/common";
 import { ApplicationPrescreenModule } from "./applicationPrescreen/applicationPrescreen.module";
+import { BorrowerPrescreenModule } from "./borrowerPrescreen/borrowerPrescreen.module";
+import { LoanModule } from "./loan/loan.module";
 import { HealthModule } from "./health/health.module";
 import { PrismaModule } from "./prisma/prisma.module";
 import { SecretsManagerModule } from "./providers/secrets/secretsManager.module";
@@ -13,6 +15,8 @@ import { ApolloDriver, ApolloDriverConfig } from "@nestjs/apollo";
   controllers: [],
   imports: [
     ApplicationPrescreenModule,
+    BorrowerPrescreenModule,
+    LoanModule,
     HealthModule,
     PrismaModule,
     SecretsManagerModule,

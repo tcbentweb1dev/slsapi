@@ -11,47 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
+import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
-class ApplicationPrescreenWhereInput {
-  @ApiProperty({
-    required: false,
-    type: DateTimeNullableFilter,
-  })
-  @Type(() => DateTimeNullableFilter)
-  @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
-    nullable: true,
-  })
-  applicationDate?: DateTimeNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringFilter,
-  })
-  @Type(() => StringFilter)
-  @IsOptional()
-  @Field(() => StringFilter, {
-    nullable: true,
-  })
-  applicationNo?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: DateTimeNullableFilter,
-  })
-  @Type(() => DateTimeNullableFilter)
-  @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
-    nullable: true,
-  })
-  applyDate?: DateTimeNullableFilter;
-
+class BorrowerPrescreenWhereInput {
   @ApiProperty({
     required: false,
     type: StringNullableFilter,
@@ -61,51 +28,7 @@ class ApplicationPrescreenWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  branchCodeOwner?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  branchNameOwner?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  costCenterOwner?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  createdBy?: StringNullableFilter;
-
-  @ApiProperty({
-    required: false,
-    type: StringNullableFilter,
-  })
-  @Type(() => StringNullableFilter)
-  @IsOptional()
-  @Field(() => StringNullableFilter, {
-    nullable: true,
-  })
-  customerName?: StringNullableFilter;
+  borrowerType?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -117,6 +40,17 @@ class ApplicationPrescreenWhereInput {
     nullable: true,
   })
   customerType?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DateTimeNullableFilter,
+  })
+  @Type(() => DateTimeNullableFilter)
+  @IsOptional()
+  @Field(() => DateTimeNullableFilter, {
+    nullable: true,
+  })
+  dateOfBirth?: DateTimeNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -149,7 +83,7 @@ class ApplicationPrescreenWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  referralByBranch?: StringNullableFilter;
+  nameEn?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -160,7 +94,7 @@ class ApplicationPrescreenWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  referralByName?: StringNullableFilter;
+  nameTh?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -171,18 +105,51 @@ class ApplicationPrescreenWhereInput {
   @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  status?: StringNullableFilter;
+  personalDocType?: StringNullableFilter;
 
   @ApiProperty({
     required: false,
-    type: DateTimeNullableFilter,
+    type: StringNullableFilter,
   })
-  @Type(() => DateTimeNullableFilter)
+  @Type(() => StringNullableFilter)
   @IsOptional()
-  @Field(() => DateTimeNullableFilter, {
+  @Field(() => StringNullableFilter, {
     nullable: true,
   })
-  updatedBy?: DateTimeNullableFilter;
+  surnameEn?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  surnameTh?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  titleEn?: StringNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringNullableFilter,
+  })
+  @Type(() => StringNullableFilter)
+  @IsOptional()
+  @Field(() => StringNullableFilter, {
+    nullable: true,
+  })
+  titleTh?: StringNullableFilter;
 }
 
-export { ApplicationPrescreenWhereInput as ApplicationPrescreenWhereInput };
+export { BorrowerPrescreenWhereInput as BorrowerPrescreenWhereInput };

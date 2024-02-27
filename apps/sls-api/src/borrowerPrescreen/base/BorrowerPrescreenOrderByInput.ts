@@ -18,7 +18,7 @@ import { SortOrder } from "../../util/SortOrder";
   isAbstract: true,
   description: undefined,
 })
-class ApplicationPrescreenOrderByInput {
+class BorrowerPrescreenOrderByInput {
   @ApiProperty({
     required: false,
     enum: ["asc", "desc"],
@@ -28,73 +28,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  applicationDate?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  applicationNo?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  applyDate?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  branchCodeOwner?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  branchNameOwner?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  costCenterOwner?: SortOrder;
-
-  @ApiProperty({
-    required: false,
-    enum: ["asc", "desc"],
-  })
-  @IsOptional()
-  @IsEnum(SortOrder)
-  @Field(() => SortOrder, {
-    nullable: true,
-  })
-  createdBy?: SortOrder;
+  borrowerType?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -116,7 +50,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  customerName?: SortOrder;
+  customerType?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -127,7 +61,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  customerType?: SortOrder;
+  dateOfBirth?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -160,7 +94,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  referralByBranch?: SortOrder;
+  nameEn?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -171,7 +105,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  referralByName?: SortOrder;
+  nameTh?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -182,7 +116,7 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  status?: SortOrder;
+  personalDocType?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -193,7 +127,40 @@ class ApplicationPrescreenOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
-  updatedBy?: SortOrder;
+  surnameEn?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  surnameTh?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  titleEn?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  titleTh?: SortOrder;
 
   @ApiProperty({
     required: false,
@@ -207,4 +174,4 @@ class ApplicationPrescreenOrderByInput {
   updatedDate?: SortOrder;
 }
 
-export { ApplicationPrescreenOrderByInput as ApplicationPrescreenOrderByInput };
+export { BorrowerPrescreenOrderByInput as BorrowerPrescreenOrderByInput };
