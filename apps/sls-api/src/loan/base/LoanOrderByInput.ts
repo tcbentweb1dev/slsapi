@@ -39,6 +39,17 @@ class LoanOrderByInput {
   @Field(() => SortOrder, {
     nullable: true,
   })
+  createDate?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
   id?: SortOrder;
 
   @ApiProperty({
@@ -172,6 +183,17 @@ class LoanOrderByInput {
     nullable: true,
   })
   updatedAt?: SortOrder;
+
+  @ApiProperty({
+    required: false,
+    enum: ["asc", "desc"],
+  })
+  @IsOptional()
+  @IsEnum(SortOrder)
+  @Field(() => SortOrder, {
+    nullable: true,
+  })
+  updateDate?: SortOrder;
 }
 
 export { LoanOrderByInput as LoanOrderByInput };

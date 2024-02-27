@@ -46,6 +46,7 @@ model BorrowerPrescreen {
 
 model Loan {
   createdAt               DateTime @default(now())
+  createDate              DateTime @default(now())
   id                      String   @id @default(auto()) @map("_id") @db.ObjectId
   isSoftLoan              Boolean?
   loanApprovedAmount      Decimal
@@ -59,4 +60,5 @@ model Loan {
   loanType                String
   loanWithdrawalAvailable Decimal
   updatedAt               DateTime @updatedAt
+  updateDate              DateTime @updatedAt
 }

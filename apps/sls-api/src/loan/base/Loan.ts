@@ -34,6 +34,14 @@ class Loan {
 
   @ApiProperty({
     required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  createDate!: Date;
+
+  @ApiProperty({
+    required: true,
     type: String,
   })
   @IsString()
@@ -138,6 +146,14 @@ class Loan {
   @Type(() => Date)
   @Field(() => Date)
   updatedAt!: Date;
+
+  @ApiProperty({
+    required: true,
+  })
+  @IsDate()
+  @Type(() => Date)
+  @Field(() => Date)
+  updateDate!: Date;
 }
 
 export { Loan as Loan };
