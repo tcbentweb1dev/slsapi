@@ -52,15 +52,12 @@ class Loan {
   isSoftLoan!: boolean | null;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
-  @IsOptional()
-  @Field(() => Float, {
-    nullable: true,
-  })
-  loanApprovedAmount!: Decimal | null;
+  @Field(() => Float)
+  loanApprovedAmount!: Decimal;
 
   @ApiProperty({
     required: true,
@@ -71,15 +68,12 @@ class Loan {
   loanCampainCode!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
-  @IsOptional()
-  @Field(() => Float, {
-    nullable: true,
-  })
-  loanDebtBurden!: Decimal | null;
+  @Field(() => Float)
+  loanDebtBurden!: Decimal;
 
   @ApiProperty({
     required: true,
@@ -114,15 +108,12 @@ class Loan {
   loanPurpose!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
-  @IsOptional()
-  @Field(() => Float, {
-    nullable: true,
-  })
-  loanRequestAmount!: Decimal | null;
+  @Field(() => Float)
+  loanRequestAmount!: Decimal;
 
   @ApiProperty({
     required: true,
@@ -133,15 +124,12 @@ class Loan {
   loanType!: string;
 
   @ApiProperty({
-    required: false,
+    required: true,
     type: Number,
   })
   @IsNumber()
-  @IsOptional()
-  @Field(() => Float, {
-    nullable: true,
-  })
-  loanWithdrawalAvailable!: Decimal | null;
+  @Field(() => Float)
+  loanWithdrawalAvailable!: Decimal;
 
   @ApiProperty({
     required: true,

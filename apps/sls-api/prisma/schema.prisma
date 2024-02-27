@@ -48,15 +48,15 @@ model Loan {
   createdAt               DateTime @default(now())
   id                      String   @id @default(auto()) @map("_id") @db.ObjectId
   isSoftLoan              Boolean?
-  loanApprovedAmount      Decimal?
+  loanApprovedAmount      Decimal
   loanCampainCode         String
-  loanDebtBurden          Decimal?
+  loanDebtBurden          Decimal
   loanNo                  Int
   loanObjective           String
   loanProductCode         String
   loanPurpose             String
-  loanRequestAmount       Decimal?
+  loanRequestAmount       Decimal
   loanType                String
-  loanWithdrawalAvailable Decimal?
+  loanWithdrawalAvailable Decimal
   updatedAt               DateTime @updatedAt
 }

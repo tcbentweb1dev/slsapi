@@ -42,7 +42,7 @@ class LoanUpdateInput {
   @Field(() => Float, {
     nullable: true,
   })
-  loanApprovedAmount?: Decimal | null;
+  loanApprovedAmount?: Decimal;
 
   @ApiProperty({
     required: false,
@@ -64,7 +64,7 @@ class LoanUpdateInput {
   @Field(() => Float, {
     nullable: true,
   })
-  loanDebtBurden?: Decimal | null;
+  loanDebtBurden?: Decimal;
 
   @ApiProperty({
     required: false,
@@ -119,7 +119,7 @@ class LoanUpdateInput {
   @Field(() => Float, {
     nullable: true,
   })
-  loanRequestAmount?: Decimal | null;
+  loanRequestAmount?: Decimal;
 
   @ApiProperty({
     required: false,
@@ -141,7 +141,7 @@ class LoanUpdateInput {
   @Field(() => Float, {
     nullable: true,
   })
-  loanWithdrawalAvailable?: Decimal | null;
+  loanWithdrawalAvailable?: Decimal;
 }
 
 export { LoanUpdateInput as LoanUpdateInput };

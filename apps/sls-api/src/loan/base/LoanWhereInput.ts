@@ -15,7 +15,6 @@ import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
 import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
-import { DecimalNullableFilter } from "../../util/DecimalNullableFilter";
 import { IntFilter } from "../../util/IntFilter";
 
 @InputType()
@@ -44,17 +43,6 @@ class LoanWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DecimalNullableFilter,
-  })
-  @Type(() => DecimalNullableFilter)
-  @IsOptional()
-  @Field(() => DecimalNullableFilter, {
-    nullable: true,
-  })
-  loanApprovedAmount?: DecimalNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -63,17 +51,6 @@ class LoanWhereInput {
     nullable: true,
   })
   loanCampainCode?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: DecimalNullableFilter,
-  })
-  @Type(() => DecimalNullableFilter)
-  @IsOptional()
-  @Field(() => DecimalNullableFilter, {
-    nullable: true,
-  })
-  loanDebtBurden?: DecimalNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -121,17 +98,6 @@ class LoanWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DecimalNullableFilter,
-  })
-  @Type(() => DecimalNullableFilter)
-  @IsOptional()
-  @Field(() => DecimalNullableFilter, {
-    nullable: true,
-  })
-  loanRequestAmount?: DecimalNullableFilter;
-
-  @ApiProperty({
-    required: false,
     type: StringFilter,
   })
   @Type(() => StringFilter)
@@ -140,17 +106,6 @@ class LoanWhereInput {
     nullable: true,
   })
   loanType?: StringFilter;
-
-  @ApiProperty({
-    required: false,
-    type: DecimalNullableFilter,
-  })
-  @Type(() => DecimalNullableFilter)
-  @IsOptional()
-  @Field(() => DecimalNullableFilter, {
-    nullable: true,
-  })
-  loanWithdrawalAvailable?: DecimalNullableFilter;
 }
 
 export { LoanWhereInput as LoanWhereInput };
