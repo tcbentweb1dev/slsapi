@@ -11,7 +11,14 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field, Float } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsString, IsNumber, IsInt } from "class-validator";
+import {
+  IsDate,
+  IsString,
+  IsBoolean,
+  IsOptional,
+  IsNumber,
+  IsInt,
+} from "class-validator";
 import { Type } from "class-transformer";
 import { Decimal } from "decimal.js";
 
@@ -34,12 +41,45 @@ class Loan {
   id!: string;
 
   @ApiProperty({
-    required: true,
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isSoftLoan!: boolean | null;
+
+  @ApiProperty({
+    required: false,
     type: Number,
   })
   @IsNumber()
-  @Field(() => Float)
-  loanAmount!: Decimal;
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanApprovedAmount!: Decimal | null;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanCampainCode!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanDebtBurden!: Decimal | null;
 
   @ApiProperty({
     required: true,
@@ -48,6 +88,60 @@ class Loan {
   @IsInt()
   @Field(() => Number)
   loanNo!: number;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanObjective!: string;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanProductCode!: string;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanPurpose!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanRequestAmount!: Decimal | null;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanType!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanWithdrawalAvailable!: Decimal | null;
 
   @ApiProperty({
     required: true,

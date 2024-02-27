@@ -14,7 +14,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { StringFilter } from "../../util/StringFilter";
 import { Type } from "class-transformer";
 import { IsOptional } from "class-validator";
-import { DecimalFilter } from "../../util/DecimalFilter";
+import { BooleanNullableFilter } from "../../util/BooleanNullableFilter";
+import { DecimalNullableFilter } from "../../util/DecimalNullableFilter";
 import { IntFilter } from "../../util/IntFilter";
 
 @InputType()
@@ -32,14 +33,47 @@ class LoanWhereInput {
 
   @ApiProperty({
     required: false,
-    type: DecimalFilter,
+    type: BooleanNullableFilter,
   })
-  @Type(() => DecimalFilter)
+  @Type(() => BooleanNullableFilter)
   @IsOptional()
-  @Field(() => DecimalFilter, {
+  @Field(() => BooleanNullableFilter, {
     nullable: true,
   })
-  loanAmount?: DecimalFilter;
+  isSoftLoan?: BooleanNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DecimalNullableFilter,
+  })
+  @Type(() => DecimalNullableFilter)
+  @IsOptional()
+  @Field(() => DecimalNullableFilter, {
+    nullable: true,
+  })
+  loanApprovedAmount?: DecimalNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  loanCampainCode?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DecimalNullableFilter,
+  })
+  @Type(() => DecimalNullableFilter)
+  @IsOptional()
+  @Field(() => DecimalNullableFilter, {
+    nullable: true,
+  })
+  loanDebtBurden?: DecimalNullableFilter;
 
   @ApiProperty({
     required: false,
@@ -51,6 +85,72 @@ class LoanWhereInput {
     nullable: true,
   })
   loanNo?: IntFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  loanObjective?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  loanProductCode?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  loanPurpose?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DecimalNullableFilter,
+  })
+  @Type(() => DecimalNullableFilter)
+  @IsOptional()
+  @Field(() => DecimalNullableFilter, {
+    nullable: true,
+  })
+  loanRequestAmount?: DecimalNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: StringFilter,
+  })
+  @Type(() => StringFilter)
+  @IsOptional()
+  @Field(() => StringFilter, {
+    nullable: true,
+  })
+  loanType?: StringFilter;
+
+  @ApiProperty({
+    required: false,
+    type: DecimalNullableFilter,
+  })
+  @Type(() => DecimalNullableFilter)
+  @IsOptional()
+  @Field(() => DecimalNullableFilter, {
+    nullable: true,
+  })
+  loanWithdrawalAvailable?: DecimalNullableFilter;
 }
 
 export { LoanWhereInput as LoanWhereInput };

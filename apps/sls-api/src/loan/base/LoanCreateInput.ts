@@ -11,18 +11,57 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field, Float } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsInt } from "class-validator";
+import {
+  IsBoolean,
+  IsOptional,
+  IsNumber,
+  IsString,
+  IsInt,
+} from "class-validator";
 import { Decimal } from "decimal.js";
 
 @InputType()
 class LoanCreateInput {
   @ApiProperty({
-    required: true,
+    required: false,
+    type: Boolean,
+  })
+  @IsBoolean()
+  @IsOptional()
+  @Field(() => Boolean, {
+    nullable: true,
+  })
+  isSoftLoan?: boolean | null;
+
+  @ApiProperty({
+    required: false,
     type: Number,
   })
   @IsNumber()
-  @Field(() => Float)
-  loanAmount!: Decimal;
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanApprovedAmount?: Decimal | null;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanCampainCode!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanDebtBurden?: Decimal | null;
 
   @ApiProperty({
     required: true,
@@ -31,6 +70,60 @@ class LoanCreateInput {
   @IsInt()
   @Field(() => Number)
   loanNo!: number;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanObjective!: string;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanProductCode!: string;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanPurpose!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanRequestAmount?: Decimal | null;
+
+  @ApiProperty({
+    required: true,
+    type: String,
+  })
+  @IsString()
+  @Field(() => String)
+  loanType!: string;
+
+  @ApiProperty({
+    required: false,
+    type: Number,
+  })
+  @IsNumber()
+  @IsOptional()
+  @Field(() => Float, {
+    nullable: true,
+  })
+  loanWithdrawalAvailable?: Decimal | null;
 }
 
 export { LoanCreateInput as LoanCreateInput };

@@ -45,9 +45,18 @@ model BorrowerPrescreen {
 }
 
 model Loan {
-  createdAt  DateTime @default(now())
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  loanAmount Decimal
-  loanNo     Int
-  updatedAt  DateTime @updatedAt
+  createdAt               DateTime @default(now())
+  id                      String   @id @default(auto()) @map("_id") @db.ObjectId
+  isSoftLoan              Boolean?
+  loanApprovedAmount      Decimal?
+  loanCampainCode         String
+  loanDebtBurden          Decimal?
+  loanNo                  Int
+  loanObjective           String
+  loanProductCode         String
+  loanPurpose             String
+  loanRequestAmount       Decimal?
+  loanType                String
+  loanWithdrawalAvailable Decimal?
+  updatedAt               DateTime @updatedAt
 }
