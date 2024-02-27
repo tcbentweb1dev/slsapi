@@ -20,6 +20,7 @@ import { ApplicationPrescreenFindUniqueArgs } from "./ApplicationPrescreenFindUn
 import { CreateApplicationPrescreenArgs } from "./CreateApplicationPrescreenArgs";
 import { UpdateApplicationPrescreenArgs } from "./UpdateApplicationPrescreenArgs";
 import { DeleteApplicationPrescreenArgs } from "./DeleteApplicationPrescreenArgs";
+import { BorrowerPrescreen } from "../../borrowerPrescreen/base/BorrowerPrescreen";
 import { ApplicationPrescreenService } from "../applicationPrescreen.service";
 @graphql.Resolver(() => ApplicationPrescreen)
 export class ApplicationPrescreenResolverBase {
@@ -58,7 +59,15 @@ export class ApplicationPrescreenResolverBase {
   ): Promise<ApplicationPrescreen> {
     return await this.service.createApplicationPrescreen({
       ...args,
-      data: args.data,
+      data: {
+        ...args.data,
+
+        borrowerPrescreens: args.data.borrowerPrescreens
+          ? {
+              connect: args.data.borrowerPrescreens,
+            }
+          : undefined,
+      },
     });
   }
 
@@ -69,7 +78,15 @@ export class ApplicationPrescreenResolverBase {
     try {
       return await this.service.updateApplicationPrescreen({
         ...args,
-        data: args.data,
+        data: {
+          ...args.data,
+
+          borrowerPrescreens: args.data.borrowerPrescreens
+            ? {
+                connect: args.data.borrowerPrescreens,
+              }
+            : undefined,
+        },
       });
     } catch (error) {
       if (isRecordNotFoundError(error)) {
@@ -95,5 +112,20 @@ export class ApplicationPrescreenResolverBase {
       }
       throw error;
     }
+  }
+
+  @graphql.ResolveField(() => BorrowerPrescreen, {
+    nullable: true,
+    name: "borrowerPrescreens",
+  })
+  async getBorrowerPrescreens(
+    @graphql.Parent() parent: ApplicationPrescreen
+  ): Promise<BorrowerPrescreen | null> {
+    const result = await this.service.getBorrowerPrescreens(parent.id);
+
+    if (!result) {
+      return null;
+    }
+    return result;
   }
 }

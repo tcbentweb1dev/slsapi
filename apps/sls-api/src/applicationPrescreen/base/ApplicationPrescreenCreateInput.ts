@@ -11,8 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString } from "class-validator";
+import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { BorrowerPrescreenWhereUniqueInput } from "../../borrowerPrescreen/base/BorrowerPrescreenWhereUniqueInput";
 
 @InputType()
 class ApplicationPrescreenCreateInput {
@@ -45,6 +46,18 @@ class ApplicationPrescreenCreateInput {
     nullable: true,
   })
   applyDate?: Date | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => BorrowerPrescreenWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => BorrowerPrescreenWhereUniqueInput)
+  @IsOptional()
+  @Field(() => BorrowerPrescreenWhereUniqueInput, {
+    nullable: true,
+  })
+  borrowerPrescreens?: BorrowerPrescreenWhereUniqueInput | null;
 
   @ApiProperty({
     required: false,

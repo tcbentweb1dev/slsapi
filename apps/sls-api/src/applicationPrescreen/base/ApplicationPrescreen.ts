@@ -11,8 +11,9 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { ObjectType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { IsDate, IsOptional, IsString } from "class-validator";
+import { IsDate, IsOptional, IsString, ValidateNested } from "class-validator";
 import { Type } from "class-transformer";
+import { BorrowerPrescreen } from "../../borrowerPrescreen/base/BorrowerPrescreen";
 
 @ObjectType()
 class ApplicationPrescreen {
@@ -45,6 +46,15 @@ class ApplicationPrescreen {
     nullable: true,
   })
   applyDate!: Date | null;
+
+  @ApiProperty({
+    required: false,
+    type: () => BorrowerPrescreen,
+  })
+  @ValidateNested()
+  @Type(() => BorrowerPrescreen)
+  @IsOptional()
+  borrowerPrescreens?: BorrowerPrescreen | null;
 
   @ApiProperty({
     required: false,

@@ -10,7 +10,12 @@ https://docs.amplication.com/how-to/custom-code
 ------------------------------------------------------------------------------
   */
 import { PrismaService } from "../../prisma/prisma.service";
-import { Prisma, ApplicationPrescreen } from "@prisma/client";
+
+import {
+  Prisma,
+  ApplicationPrescreen, // @ts-ignore
+  BorrowerPrescreen,
+} from "@prisma/client";
 
 export class ApplicationPrescreenServiceBase {
   constructor(protected readonly prisma: PrismaService) {}
@@ -55,5 +60,15 @@ export class ApplicationPrescreenServiceBase {
     args: Prisma.SelectSubset<T, Prisma.ApplicationPrescreenDeleteArgs>
   ): Promise<ApplicationPrescreen> {
     return this.prisma.applicationPrescreen.delete(args);
+  }
+
+  async getBorrowerPrescreens(
+    parentId: string
+  ): Promise<BorrowerPrescreen | null> {
+    return this.prisma.applicationPrescreen
+      .findUnique({
+        where: { id: parentId },
+      })
+      .borrowerPrescreens();
   }
 }

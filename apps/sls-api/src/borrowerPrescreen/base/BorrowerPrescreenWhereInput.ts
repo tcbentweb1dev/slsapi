@@ -11,14 +11,27 @@ https://docs.amplication.com/how-to/custom-code
   */
 import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
-import { StringNullableFilter } from "../../util/StringNullableFilter";
+import { ApplicationPrescreenWhereUniqueInput } from "../../applicationPrescreen/base/ApplicationPrescreenWhereUniqueInput";
+import { ValidateNested, IsOptional } from "class-validator";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { StringNullableFilter } from "../../util/StringNullableFilter";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { StringFilter } from "../../util/StringFilter";
 
 @InputType()
 class BorrowerPrescreenWhereInput {
+  @ApiProperty({
+    required: false,
+    type: () => ApplicationPrescreenWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => ApplicationPrescreenWhereUniqueInput)
+  @IsOptional()
+  @Field(() => ApplicationPrescreenWhereUniqueInput, {
+    nullable: true,
+  })
+  applicationId?: ApplicationPrescreenWhereUniqueInput;
+
   @ApiProperty({
     required: false,
     type: StringNullableFilter,

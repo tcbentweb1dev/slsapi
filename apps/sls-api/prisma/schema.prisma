@@ -8,31 +8,34 @@ generator client {
 }
 
 model ApplicationPrescreen {
-  applicationDate  DateTime?
-  applicationNo    String    @unique
-  applyDate        DateTime?
-  branchCodeOwner  String?
-  branchNameOwner  String?
-  costCenterOwner  String?
-  createdBy        String?
-  createdDate      DateTime  @default(now())
-  customerName     String?
-  customerType     String?
-  id               String    @id @default(auto()) @map("_id") @db.ObjectId
-  idNumber         String?
-  referralByBranch String?
-  referralByName   String?
-  status           String?
-  updatedBy        DateTime?
-  updatedDate      DateTime  @updatedAt
+  applicationDate    DateTime?
+  applicationNo      String             @unique
+  applyDate          DateTime?
+  borrowerPrescreens BorrowerPrescreen?
+  branchCodeOwner    String?
+  branchNameOwner    String?
+  costCenterOwner    String?
+  createdBy          String?
+  createdDate        DateTime           @default(now())
+  customerName       String?
+  customerType       String?
+  id                 String             @id @default(auto()) @map("_id") @db.ObjectId
+  idNumber           String?
+  referralByBranch   String?
+  referralByName     String?
+  status             String?
+  updatedBy          DateTime?
+  updatedDate        DateTime           @updatedAt
 }
 
 model BorrowerPrescreen {
+  applicationId   ApplicationPrescreen? @relation(fields: [id], references: [id])
+  id              String?               @unique @db.ObjectId
   borrowerType    String?
-  createdDate     DateTime  @default(now())
+  createdDate     DateTime              @default(now())
   customerType    String?
   dateOfBirth     DateTime?
-  id              String    @id @default(auto()) @map("_id") @db.ObjectId
+  id              String                @id @default(auto()) @map("_id") @db.ObjectId
   idNumber        String?
   nameEn          String?
   nameTh          String?
@@ -41,7 +44,7 @@ model BorrowerPrescreen {
   surnameTh       String?
   titleEn         String?
   titleTh         String?
-  updatedDate     DateTime  @updatedAt
+  updatedDate     DateTime              @updatedAt
 }
 
 model Loan {

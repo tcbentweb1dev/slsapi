@@ -13,8 +13,9 @@ import { InputType, Field } from "@nestjs/graphql";
 import { ApiProperty } from "@nestjs/swagger";
 import { DateTimeNullableFilter } from "../../util/DateTimeNullableFilter";
 import { Type } from "class-transformer";
-import { IsOptional } from "class-validator";
+import { IsOptional, ValidateNested } from "class-validator";
 import { StringFilter } from "../../util/StringFilter";
+import { BorrowerPrescreenWhereUniqueInput } from "../../borrowerPrescreen/base/BorrowerPrescreenWhereUniqueInput";
 import { StringNullableFilter } from "../../util/StringNullableFilter";
 
 @InputType()
@@ -51,6 +52,18 @@ class ApplicationPrescreenWhereInput {
     nullable: true,
   })
   applyDate?: DateTimeNullableFilter;
+
+  @ApiProperty({
+    required: false,
+    type: () => BorrowerPrescreenWhereUniqueInput,
+  })
+  @ValidateNested()
+  @Type(() => BorrowerPrescreenWhereUniqueInput)
+  @IsOptional()
+  @Field(() => BorrowerPrescreenWhereUniqueInput, {
+    nullable: true,
+  })
+  borrowerPrescreens?: BorrowerPrescreenWhereUniqueInput;
 
   @ApiProperty({
     required: false,
